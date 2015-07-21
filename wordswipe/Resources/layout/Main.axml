@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/overall_padding">
+    <TextView
+        android:text="word"
+        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:layout_width="match_parent"
+        android:layout_height="66.0dp"
+        android:id="@+id/currentWord"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/word_top_margin" />
+    <TextView
+        android:text="definition"
+        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/definition"
+        android:gravity="left"
+        android:layout_below="@+id/currentWord"
+        android:layout_marginTop="@dimen/definition_top_margin" />
+    <TextView
+        android:text="didn't know it"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeNo"
+        android:layout_below="@+id/definition"
+        android:textAllCaps="false"
+        android:layout_alignParentStart="true"
+        android:gravity="bottom"
+        android:layout_marginBottom="@dimen/swipe_text_bottom_padding" />
+    <TextView
+        android:text="knew it"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/swipeYes"
+        android:gravity="bottom"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/definition"
+        android:textAllCaps="false"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/swipe_text_bottom_padding" />
+</RelativeLayout>

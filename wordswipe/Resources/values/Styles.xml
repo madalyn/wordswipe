@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<dimen name="overall_padding">20dp</dimen>
+	<dimen name="word_top_margin">25dp</dimen>
+	<dimen name="definition_top_margin">10dp</dimen>
+	<dimen name="swipe_text_bottom_padding">150dp</dimen>
+</resources>
