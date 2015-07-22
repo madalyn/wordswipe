@@ -8,8 +8,10 @@ using Android.Widget;
 using Android.OS;
 using System.Collections.Generic;
 using System.Linq;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+using System.IO;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Json;
 
 namespace wordswipe
 {
@@ -17,61 +19,65 @@ namespace wordswipe
 	[Activity (Label = "wordswipe", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.Custom")]
 	public class MainActivity : Activity
 	{
-		int count = 1;
+		// UI Elements
+		TextView currentWordView;
+		TextView currentDefinitionView;
+		TextView swipeYesView;
+		TextView swipeNoView;
+		WordGenerator generator;
 
+		/*
+		 * setting for looping through words
+		 * setting for language of words (later)
+		 * setting for difficultly/level of words (by grade maybe?)
+		 * setting for length of words
+		*/
 		protected override void OnCreate (Bundle bundle)
 		{
 			base.OnCreate (bundle);
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
+			generator = new WordGenerator (Assets.Open);
 
-			// Get our button from the layout resource,
-			// and attach an event to it
-//			Button button = FindViewById<Button> (Resource.Id.myButton);
-//			
-//			button.Click += delegate {
-//				button.Text = string.Format ("{0} clicks!", count++);
-//			};
+			// get the TextViews from the UI
+			currentWordView = FindViewById<TextView> (Resource.Id.currentWord);
+			currentDefinitionView = FindViewById<TextView> (Resource.Id.definition);
+			swipeYesView = FindViewById<TextView> (Resource.Id.swipeYes);
+			swipeNoView = FindViewById<TextView> (Resource.Id.swipeNo);
 
-
-
-			// on page refresh, set the word & definition
-			var random = new Random();
-			var allWords = new List<string>{"hello", "world", "misanthrope", "sanctimonious", "yellow"};
-			var wordStack = new Stack<string>(allWords.OrderBy(w => random.Next()));
-
-			TextView currentWord = (TextView)FindViewById (Resource.Id.currentWord);
-			currentWord.Text = wordStack.Pop();
-
-			// get definition
-			TextView currentDefinition = (TextView)FindViewById (Resource.Id.definition);
-			currentDefinition.Text = GetCurrentDefinition (currentWord.Text);
+			UpdateCurrentWord ();
+			//List<string> unknownWords = new List<string> ();
 
 			// swiping actions for left & right need to be set
+			swipeYesView.Click += delegate {
+				UpdateCurrentWord ();
+			};
+
+			swipeNoView.Click += delegate {
+				UpdateCurrentWord ();
+				//unknownWords.Add (currentWordView.Text);
+			};
 
 
 			// TODO: menu for list of newly learned words
 		}
 
-		string GetCurrentDefinition (string currentWord)
+		async void UpdateCurrentWord ()
 		{
-			string currentDefinition = "no definition";
+			currentWordView.Visibility = ViewStates.Invisible;
+			currentDefinitionView.Visibility = ViewStates.Invisible;
 
-			// use word randomly selected to query for the definition
-			var url = "http://api.wordnik.com:80/v4/word.json/"+ currentWord +"/definitions?limit=1&includeRelated=false&sourceDictionaries=all&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+			var entry = await generator.GetNextWordEntry ();
 
-			dynamic jResults = JsonConvert.DeserializeObject (WebRequester.getInstance().doWebRequest(url));
+			currentWordView.Visibility = ViewStates.Visible;
+			currentDefinitionView.Visibility = ViewStates.Visible;
 
-			// want "text" for definition
-			if (jResults != null && jResults[0] != null && jResults[0]["text"] != null && !string.IsNullOrEmpty(jResults[0]["text"].Value)) {
-				currentDefinition = jResults[0]["text"].Value;
-			}
-
-			// definition could not be found
-			return currentDefinition;
+			currentWordView.Text = entry.Item1;
+			currentDefinitionView.Text = entry.Item2;
 		}
 	}
+	
 }
 
 

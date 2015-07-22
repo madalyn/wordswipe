@@ -6,9 +6,9 @@
     android:padding="@dimen/overall_padding">
     <TextView
         android:text="word"
-        android:textAppearance="@android:style/TextAppearance.Material.Display1"
+        android:textAppearance="@android:style/TextAppearance.Material.Headline"
         android:layout_width="match_parent"
-        android:layout_height="66.0dp"
+        android:layout_height="wrap_content"
         android:id="@+id/currentWord"
         android:gravity="center"
         android:layout_marginTop="@dimen/word_top_margin" />
