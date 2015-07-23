@@ -4,4 +4,5 @@
 	<dimen name="word_top_margin">25dp</dimen>
 	<dimen name="definition_top_margin">10dp</dimen>
 	<dimen name="swipe_text_bottom_padding">150dp</dimen>
+	<dimen name="button_padding">15dp</dimen>
 </resources>

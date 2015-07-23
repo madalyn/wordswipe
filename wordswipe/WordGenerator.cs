@@ -38,9 +38,9 @@ namespace wordswipe
 			using (var reader = new StreamReader (resOpener ("testwords.txt"))) {
 				string line = null;
 				while ((line = reader.ReadLine ()) != null) {
-					// filter out words that start with a capital letter, contain "."
-					// TODO: filter out non-root words so not to ascertain silly definitions
-					if (!line.Contains (".") && !line.Any(char.IsDigit) && !line.Any(char.IsUpper))
+					// filter out words that start with a capital letter, contain "." or numbers
+					// filter out non-root words so not to ascertain silly definitions (ends with "s")
+					if (!line.Contains (".") && !line.Any(char.IsDigit) && !line.Any(char.IsUpper) && !line.EndsWith("s"))
 						groomedWordList.Add (line);
 				}
 			}
@@ -87,7 +87,7 @@ namespace wordswipe
 					} else {
 						// eventually need to circle through the list of unknown words
 						// need to tell them they've learned all the words
-						currentWord = "You've learned all the words!";
+						currentWord = "You've learned all the words!"; // FIXME: don't want this to actually be the word
 						currentDefinition = string.Empty;
 						break;
 					}

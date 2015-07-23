@@ -24,7 +24,11 @@ namespace wordswipe
 		TextView currentDefinitionView;
 		TextView swipeYesView;
 		TextView swipeNoView;
+		Button viewWordsButton;
+
 		WordGenerator generator;
+
+		string currentWord;
 
 		/*
 		 * setting for looping through words
@@ -45,9 +49,11 @@ namespace wordswipe
 			currentDefinitionView = FindViewById<TextView> (Resource.Id.definition);
 			swipeYesView = FindViewById<TextView> (Resource.Id.swipeYes);
 			swipeNoView = FindViewById<TextView> (Resource.Id.swipeNo);
+			viewWordsButton = FindViewById<Button> (Resource.Id.viewWordsButton);
 
 			UpdateCurrentWord ();
-			//List<string> unknownWords = new List<string> ();
+			//FIXME: need to store this so it doesn't reset each time the user restarts the app
+			List<string> learnedWords = new List<string> ();
 
 			// swiping actions for left & right need to be set
 			swipeYesView.Click += delegate {
@@ -56,9 +62,15 @@ namespace wordswipe
 
 			swipeNoView.Click += delegate {
 				UpdateCurrentWord ();
-				//unknownWords.Add (currentWordView.Text);
+				learnedWords.Add (currentWord);
 			};
 
+			viewWordsButton.Click += (sender, e) =>
+			{
+				var intent = new Intent(this, typeof(WordsLearnedActivity));
+				intent.PutStringArrayListExtra("learned_words", learnedWords);
+				StartActivity(intent);
+			};
 
 			// TODO: menu for list of newly learned words
 		}
@@ -73,6 +85,7 @@ namespace wordswipe
 			currentWordView.Visibility = ViewStates.Visible;
 			currentDefinitionView.Visibility = ViewStates.Visible;
 
+			currentWord = entry.Item1;
 			currentWordView.Text = entry.Item1;
 			currentDefinitionView.Text = entry.Item2;
 		}

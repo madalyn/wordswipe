@@ -707,6 +707,9 @@ namespace wordswipe
 			// aapt resource value: 0x7f0a000c
 			public const int abc_search_view_text_min_width = 2131361804;
 			
+			// aapt resource value: 0x7f0a0019
+			public const int button_padding = 2131361817;
+			
 			// aapt resource value: 0x7f0a0017
 			public const int definition_top_margin = 2131361815;
 			
@@ -1291,20 +1294,20 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b0012
 			public const int match_parent = 2131427346;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int media_route_control_frame = 2131427413;
-			
 			// aapt resource value: 0x7f0b0056
-			public const int media_route_disconnect_button = 2131427414;
+			public const int media_route_control_frame = 2131427414;
 			
-			// aapt resource value: 0x7f0b0052
-			public const int media_route_list = 2131427410;
+			// aapt resource value: 0x7f0b0057
+			public const int media_route_disconnect_button = 2131427415;
 			
 			// aapt resource value: 0x7f0b0053
-			public const int media_route_volume_layout = 2131427411;
+			public const int media_route_list = 2131427411;
 			
 			// aapt resource value: 0x7f0b0054
-			public const int media_route_volume_slider = 2131427412;
+			public const int media_route_volume_layout = 2131427412;
+			
+			// aapt resource value: 0x7f0b0055
+			public const int media_route_volume_slider = 2131427413;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int middle = 2131427371;
@@ -1405,6 +1408,9 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b000a
 			public const int terrain = 2131427338;
 			
+			// aapt resource value: 0x7f0b0058
+			public const int textView1 = 2131427416;
+			
 			// aapt resource value: 0x7f0b003d
 			public const int title = 2131427389;
 			
@@ -1417,8 +1423,14 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b0021
 			public const int useLogo = 2131427361;
 			
+			// aapt resource value: 0x7f0b0052
+			public const int viewWordsButton = 2131427410;
+			
 			// aapt resource value: 0x7f0b0026
 			public const int withText = 2131427366;
+			
+			// aapt resource value: 0x7f0b0059
+			public const int wordsListView = 2131427417;
 			
 			// aapt resource value: 0x7f0b0013
 			public const int wrap_content = 2131427347;
@@ -1541,6 +1553,9 @@ namespace wordswipe
 			
 			// aapt resource value: 0x7f03001c
 			public const int support_simple_spinner_dropdown_item = 2130903068;
+			
+			// aapt resource value: 0x7f03001d
+			public const int WordsLearned = 2130903069;
 			
 			static Layout()
 			{

@@ -44,4 +44,13 @@
         android:textAllCaps="false"
         android:layout_centerInParent="true"
         android:layout_marginBottom="@dimen/swipe_text_bottom_padding" />
+    <Button
+        android:text="View All Words Learned"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/viewWordsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textAllCaps="false"
+        android:padding="@dimen/button_padding" />
 </RelativeLayout>
