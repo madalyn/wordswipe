@@ -710,6 +710,9 @@ namespace wordswipe
 			// aapt resource value: 0x7f0a000c
 			public const int abc_search_view_text_min_width = 2131361804;
 			
+			// aapt resource value: 0x7f0a001c
+			public const int button_offset = 2131361820;
+			
 			// aapt resource value: 0x7f0a0019
 			public const int button_padding = 2131361817;
 			
@@ -1237,14 +1240,14 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b0023
 			public const int collapseActionView = 2131427363;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int currentWord = 2131427412;
+			// aapt resource value: 0x7f0b0055
+			public const int currentWord = 2131427413;
 			
 			// aapt resource value: 0x7f0b003a
 			public const int default_activity_button = 2131427386;
 			
-			// aapt resource value: 0x7f0b0055
-			public const int definition = 2131427413;
+			// aapt resource value: 0x7f0b0056
+			public const int definition = 2131427414;
 			
 			// aapt resource value: 0x7f0b0027
 			public const int dialog = 2131427367;
@@ -1297,8 +1300,11 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b004e
 			public const int launchLayout = 2131427406;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int linearLayout1 = 2131427414;
+			// aapt resource value: 0x7f0b0057
+			public const int linearLayout1 = 2131427415;
+			
+			// aapt resource value: 0x7f0b0054
+			public const int linearLayout2 = 2131427412;
 			
 			// aapt resource value: 0x7f0b001a
 			public const int listMode = 2131427354;
@@ -1312,20 +1318,20 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b0012
 			public const int match_parent = 2131427346;
 			
-			// aapt resource value: 0x7f0b005d
-			public const int media_route_control_frame = 2131427421;
-			
 			// aapt resource value: 0x7f0b005e
-			public const int media_route_disconnect_button = 2131427422;
+			public const int media_route_control_frame = 2131427422;
 			
-			// aapt resource value: 0x7f0b005a
-			public const int media_route_list = 2131427418;
+			// aapt resource value: 0x7f0b005f
+			public const int media_route_disconnect_button = 2131427423;
 			
 			// aapt resource value: 0x7f0b005b
-			public const int media_route_volume_layout = 2131427419;
+			public const int media_route_list = 2131427419;
 			
 			// aapt resource value: 0x7f0b005c
-			public const int media_route_volume_slider = 2131427420;
+			public const int media_route_volume_layout = 2131427420;
+			
+			// aapt resource value: 0x7f0b005d
+			public const int media_route_volume_slider = 2131427421;
 			
 			// aapt resource value: 0x7f0b002b
 			public const int middle = 2131427371;
@@ -1417,11 +1423,11 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b004b
 			public const int submit_area = 2131427403;
 			
-			// aapt resource value: 0x7f0b0057
-			public const int swipeNo = 2131427415;
-			
 			// aapt resource value: 0x7f0b0058
-			public const int swipeYes = 2131427416;
+			public const int swipeNo = 2131427416;
+			
+			// aapt resource value: 0x7f0b0059
+			public const int swipeYes = 2131427417;
 			
 			// aapt resource value: 0x7f0b001b
 			public const int tabMode = 2131427355;
@@ -1450,14 +1456,14 @@ namespace wordswipe
 			// aapt resource value: 0x7f0b0021
 			public const int useLogo = 2131427361;
 			
-			// aapt resource value: 0x7f0b0059
-			public const int viewWordsButton = 2131427417;
+			// aapt resource value: 0x7f0b005a
+			public const int viewWordsButton = 2131427418;
 			
 			// aapt resource value: 0x7f0b0026
 			public const int withText = 2131427366;
 			
-			// aapt resource value: 0x7f0b005f
-			public const int wordsListView = 2131427423;
+			// aapt resource value: 0x7f0b0060
+			public const int wordsListView = 2131427424;
 			
 			// aapt resource value: 0x7f0b0013
 			public const int wrap_content = 2131427347;

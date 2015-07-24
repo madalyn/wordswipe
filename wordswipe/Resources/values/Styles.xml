@@ -7,4 +7,5 @@
 	<dimen name="button_padding">15dp</dimen>
 	<dimen name="swipe_buttons_top_margin">50dp</dimen>
 	<dimen name="swipe_buttons_bottom_margin">130dp</dimen>
+	<dimen name="button_offset">12dp</dimen>
 </resources>

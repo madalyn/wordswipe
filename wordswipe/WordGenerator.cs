@@ -106,7 +106,7 @@ namespace wordswipe
 			if (array.Count == 0)
 				return definition;
 			var result = (JsonObject)array [0];
-			Console.WriteLine ("Word at the end: {0}", (string)result ["word"]);
+			Console.WriteLine ("Word at the end: {0}", (string)result ["word"]); //TODO: use this
 			// "text" gives us the definition from the JSON
 			if (!string.IsNullOrEmpty (result ["text"]))
 				definition = result ["text"];

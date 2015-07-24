@@ -10,68 +10,82 @@
         android:layout_height="wrap_content"
         android:minHeight="?android:attr/actionBarSize"
         android:background="?android:attr/colorPrimary" />
-    <TextView
-        android:text="word"
-        android:textAppearance="@android:style/TextAppearance.Material.Headline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/currentWord"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/word_top_margin"
-        android:layout_weight="0" />
-    <TextView
-        android:text="definition"
-        android:textAppearance="@android:style/TextAppearance.Material.Subhead"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/definition"
-        android:gravity="left"
-        android:layout_marginTop="@dimen/definition_top_margin"
-        android:layout_weight="1"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp" />
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:minWidth="25px"
         android:minHeight="25px"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/linearLayout1"
-        android:layout_weight="0"
-        android:gravity="center"
-        android:layout_marginTop="@dimen/swipe_buttons_top_margin"
-        android:layout_marginBottom="@dimen/swipe_buttons_bottom_margin">
-        <Button
-            android:text="didn't know it"
-            android:textAppearance="@android:style/TextAppearance.Material.Title"
-            android:id="@+id/swipeNo"
-            android:textAllCaps="false"
+        android:layout_height="match_parent"
+        android:id="@+id/linearLayout2"
+        android:padding="@dimen/overall_padding"
+        android:background="@color/wordswipe_background">
+        <TextView
+            android:text="word"
+            android:textAppearance="@android:style/TextAppearance.Material.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/currentWord"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/word_top_margin"
+            android:layout_weight="0" />
+        <TextView
+            android:text="definition"
+            android:textAppearance="@android:style/TextAppearance.Material.Subhead"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/definition"
             android:gravity="left"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/definition_top_margin"
             android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle" />
+            android:layout_marginLeft="@dimen/button_offset"
+            android:layout_marginRight="@dimen/button_offset" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout1"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/swipe_buttons_top_margin"
+            android:layout_marginBottom="@dimen/swipe_buttons_bottom_margin">
+            <Button
+                android:text="didn't know it"
+                android:textAppearance="@android:style/TextAppearance.Material.Title"
+                android:id="@+id/swipeNo"
+                android:textAllCaps="false"
+                android:gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="#fff50057" />
+            <Button
+                android:text="knew it"
+                android:textAppearance="@android:style/TextAppearance.Material.Title"
+                android:id="@+id/swipeYes"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:layout_weight="1"
+                style="?android:attr/borderlessButtonStyle"
+                android:textColor="#fff50057" />
+        </LinearLayout>
         <Button
-            android:text="knew it"
-            android:textAppearance="@android:style/TextAppearance.Material.Title"
-            android:id="@+id/swipeYes"
+            android:text="View All Words Learned"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/viewWordsButton"
             android:textAllCaps="false"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="right"
-            android:layout_weight="1"
-            style="?android:attr/borderlessButtonStyle" />
+            android:padding="@dimen/button_padding"
+            android:gravity="center"
+            android:layout_weight="0"
+            android:layout_marginBottom="@dimen/word_top_margin"
+            android:layout_marginRight="@dimen/button_offset"
+            android:layout_marginLeft="@dimen/button_offset"
+            android:textColor="#ffe1f5fe"
+            android:textAppearance="@android:style/TextAppearance.Material.Title" />
     </LinearLayout>
-    <Button
-        android:text="View All Words Learned"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/viewWordsButton"
-        android:textAllCaps="false"
-        android:padding="@dimen/button_padding"
-        android:gravity="center"
-        android:layout_weight="0"
-        android:layout_marginBottom="@dimen/word_top_margin"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp" />
 </LinearLayout>
