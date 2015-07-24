@@ -1,7 +1,9 @@
 <resources>
 	<color name="wordswipe_background">#fff1efef</color>
-	<style name="Theme.Custom" parent="@android:style/Theme.Material.Light">
-		<item name="android:windowBackground">@color/wordswipe_background</item>
+	<color name="splash_background">#ff039be5</color>
+
+	<style name="Theme.Custom" parent="@android:style/Theme.Material.Light.NoActionBar">
+		<item name="android:colorBackground">@color/splash_background</item>
 		<item name="android:colorPrimary">#ff03a9f4</item>
 		<item name="android:colorPrimaryDark">#ff01579b</item>
 		<item name="android:colorAccent">#ffff1744</item>
@@ -11,4 +13,5 @@
 		<item name="android:colorControlNormal">#ff757575</item>
 		<item name="android:colorButtonNormal">#ff039be5</item>
 	</style>
+
 </resources>

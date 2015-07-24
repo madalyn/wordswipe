@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
 	<dimen name="overall_padding">20dp</dimen>
-	<dimen name="word_top_margin">25dp</dimen>
+	<dimen name="word_top_margin">30dp</dimen>
 	<dimen name="definition_top_margin">10dp</dimen>
 	<dimen name="swipe_text_bottom_padding">150dp</dimen>
 	<dimen name="button_padding">15dp</dimen>
+	<dimen name="swipe_buttons_top_margin">50dp</dimen>
+	<dimen name="swipe_buttons_bottom_margin">130dp</dimen>
 </resources>

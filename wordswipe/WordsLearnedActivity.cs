@@ -15,7 +15,7 @@ using Android.Graphics;
 namespace wordswipe
 {
 	// could be the heading here, also need back arrow
-	[Activity (Label = "wordswipe", MainLauncher = true, Icon = "@drawable/icon", Theme = "@style/Theme.Custom")]	
+	[Activity (Label = "wordswipe", Icon = "@drawable/icon", Theme = "@style/Theme.Custom")]	
 	public class WordsLearnedActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)

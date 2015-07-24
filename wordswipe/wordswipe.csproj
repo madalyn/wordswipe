@@ -87,6 +87,8 @@
     <AndroidResource Include="Resources\values\theme.xml" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\layout\WordsLearned.axml" />
+    <AndroidResource Include="Resources\layout\LaunchScreen.axml" />
+    <AndroidResource Include="Resources\layout\ViewManager.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>

@@ -42,8 +42,15 @@ namespace wordswipe
 		{
 			base.OnCreate (bundle);
 
+			Window.SetBackgroundDrawable (Resources.GetDrawable (Resource.Color.wordswipe_background));
+
 			// Set our view from the "main" layout resource
-			SetContentView (Resource.Layout.Main);
+			//SetContentView (Resource.Layout.Main);
+			SetContentView (Resource.Layout.ViewManager);
+			// set the splash screen to visible first
+
+			SetActionBar (FindViewById<Toolbar> (Resource.Id.toolbar));
+
 			generator = new WordGenerator (Assets.Open, GetFileStreamPath ("dict.txt").AbsolutePath);
 
 			// get the TextViews from the UI
@@ -108,6 +115,8 @@ namespace wordswipe
 			currentWordSet = await generator.PopulateNextWordSet ();
 			nextWordSet = generator.PopulateNextWordSet ();
 			UpdateCurrentWord ();
+			// switch the splash screen to the main screen
+			FindViewById (Resource.Id.launchLayout).Visibility = ViewStates.Gone;
 		}
 	}
 	
