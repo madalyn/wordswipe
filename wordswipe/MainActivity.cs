@@ -27,6 +27,8 @@ namespace wordswipe
 		Button viewWordsButton;
 
 		WordGenerator generator;
+		Stack<Tuple<string,string>> currentWordSet;
+		Task<Stack<Tuple<string,string>>> nextWordSet;
 
 		string currentWord;
 
@@ -42,7 +44,7 @@ namespace wordswipe
 
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
-			generator = new WordGenerator (Assets.Open);
+			generator = new WordGenerator (Assets.Open, GetFileStreamPath ("dict.txt").AbsolutePath);
 
 			// get the TextViews from the UI
 			currentWordView = FindViewById<TextView> (Resource.Id.currentWord);
@@ -51,7 +53,8 @@ namespace wordswipe
 			swipeNoView = FindViewById<TextView> (Resource.Id.swipeNo);
 			viewWordsButton = FindViewById<Button> (Resource.Id.viewWordsButton);
 
-			UpdateCurrentWord ();
+			InitializeWordSet ();
+
 			//FIXME: need to store this so it doesn't reset each time the user restarts the app
 			List<string> learnedWords = new List<string> ();
 
@@ -75,19 +78,36 @@ namespace wordswipe
 			// TODO: menu for list of newly learned words
 		}
 
-		async void UpdateCurrentWord ()
+		void UpdateCurrentWord ()
 		{
 			currentWordView.Visibility = ViewStates.Invisible;
 			currentDefinitionView.Visibility = ViewStates.Invisible;
 
-			var entry = await generator.GetNextWordEntry ();
+			if (!currentWordSet.Any ()) {
+				//fetch more words
+				currentWordSet = nextWordSet.Result;
+				nextWordSet = generator.PopulateNextWordSet ();
+			}
+
+			Tuple<string,string> currentSet = currentWordSet.Pop();
+			currentWord = currentSet.Item1;
+			currentWordView.Text = currentSet.Item1;
+			currentDefinitionView.Text = currentSet.Item2;
 
 			currentWordView.Visibility = ViewStates.Visible;
 			currentDefinitionView.Visibility = ViewStates.Visible;
-
+			/*
 			currentWord = entry.Item1;
 			currentWordView.Text = entry.Item1;
 			currentDefinitionView.Text = entry.Item2;
+			*/
+		}
+
+		async void InitializeWordSet ()
+		{
+			currentWordSet = await generator.PopulateNextWordSet ();
+			nextWordSet = generator.PopulateNextWordSet ();
+			UpdateCurrentWord ();
 		}
 	}
 	

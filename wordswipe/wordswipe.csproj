@@ -96,5 +96,6 @@
   <ItemGroup>
     <AndroidAsset Include="Assets\testwords.txt" />
     <AndroidAsset Include="Assets\EnglishWords.txt" />
+    <AndroidAsset Include="Assets\word_indexes.bin" />
   </ItemGroup>
 </Project>

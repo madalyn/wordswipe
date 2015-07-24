@@ -31,7 +31,8 @@
         android:textAllCaps="false"
         android:layout_alignParentStart="true"
         android:gravity="bottom"
-        android:layout_marginBottom="@dimen/swipe_text_bottom_padding" />
+        android:layout_marginBottom="@dimen/swipe_text_bottom_padding"
+        style="?android:attr/borderlessButtonStyle" />
     <TextView
         android:text="knew it"
         android:textAppearance="@android:style/TextAppearance.Material.Title"
