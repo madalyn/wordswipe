@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/error_background"
+    android:padding="@dimen/overall_padding">
+    <TextView
+        android:text="It looks like you're not connected to the internet right now..."
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/error_text" />
+    <TextView
+        android:text=":("
+        android:textAppearance="@android:style/TextAppearance.Material.Display2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/error_text" />
+    <TextView
+        android:text="WordSwipe will work again once an internet connection is established"
+        android:textAppearance="@android:style/TextAppearance.Material.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView3"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textColor="@color/error_text" />
+</LinearLayout>

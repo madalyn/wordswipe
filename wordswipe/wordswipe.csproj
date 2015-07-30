@@ -89,6 +89,7 @@
     <AndroidResource Include="Resources\layout\WordsLearned.axml" />
     <AndroidResource Include="Resources\layout\LaunchScreen.axml" />
     <AndroidResource Include="Resources\layout\ViewManager.axml" />
+    <AndroidResource Include="Resources\layout\NoConnection.axml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ItemGroup>

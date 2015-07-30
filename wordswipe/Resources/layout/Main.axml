@@ -36,7 +36,7 @@
             android:id="@+id/definition"
             android:gravity="left"
             android:layout_marginTop="@dimen/definition_top_margin"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:layout_marginLeft="@dimen/button_offset"
             android:layout_marginRight="@dimen/button_offset" />
         <LinearLayout
@@ -48,7 +48,7 @@
             android:id="@+id/linearLayout1"
             android:layout_weight="0"
             android:gravity="center"
-            android:layout_marginTop="@dimen/swipe_buttons_top_margin"
+            android:layout_marginTop="@dimen/overall_padding"
             android:layout_marginBottom="@dimen/swipe_buttons_bottom_margin">
             <Button
                 android:text="didn't know it"

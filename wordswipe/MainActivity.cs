@@ -40,14 +40,15 @@ namespace wordswipe
 		*/
 		protected override void OnCreate (Bundle bundle)
 		{
+			// TODO: rotating the screen restarts the app!
+
 			base.OnCreate (bundle);
 
 			Window.SetBackgroundDrawable (Resources.GetDrawable (Resource.Color.wordswipe_background));
 
 			// Set our view from the "main" layout resource
-			//SetContentView (Resource.Layout.Main);
 			SetContentView (Resource.Layout.ViewManager);
-			// set the splash screen to visible first
+			// set the splash screen to visible first (default)
 
 			SetActionBar (FindViewById<Toolbar> (Resource.Id.toolbar));
 
@@ -85,6 +86,7 @@ namespace wordswipe
 			// TODO: menu for list of newly learned words
 		}
 
+		// TODO: need safety to fix bug if user clicks too fast
 		void UpdateCurrentWord ()
 		{
 			currentWordView.Visibility = ViewStates.Invisible;
@@ -92,8 +94,14 @@ namespace wordswipe
 
 			if (!currentWordSet.Any ()) {
 				//fetch more words
-				currentWordSet = nextWordSet.Result;
-				nextWordSet = generator.PopulateNextWordSet ();
+				if (nextWordSet != null) {
+					currentWordSet = nextWordSet.Result;
+					nextWordSet = generator.PopulateNextWordSet ();
+				} else {
+					// TODO: show spinner
+					nextWordSet = generator.PopulateNextWordSet ();
+					currentWordSet = nextWordSet.Result;
+				}
 			}
 
 			Tuple<string,string> currentSet = currentWordSet.Pop();
@@ -103,11 +111,6 @@ namespace wordswipe
 
 			currentWordView.Visibility = ViewStates.Visible;
 			currentDefinitionView.Visibility = ViewStates.Visible;
-			/*
-			currentWord = entry.Item1;
-			currentWordView.Text = entry.Item1;
-			currentDefinitionView.Text = entry.Item2;
-			*/
 		}
 
 		async void InitializeWordSet ()

@@ -1,6 +1,8 @@
 <resources>
 	<color name="wordswipe_background">#fff1efef</color>
 	<color name="splash_background">#ff039be5</color>
+	<color name="error_background">#ffe0e0e0</color>
+	<color name="error_text">#ff757575</color>
 	<style name="Theme.Custom" parent="@android:style/Theme.Material.Light.NoActionBar">
 		<item name="android:colorBackground">@color/splash_background</item>
 		<item name="android:colorPrimary">#ff03a9f4</item>

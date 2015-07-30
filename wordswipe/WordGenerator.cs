@@ -98,7 +98,7 @@ namespace wordswipe
 			string definition = null;
 
 			// use word randomly selected to query for the definition
-			var url = "http://api.wordnik.com:80/v4/word.json/"+ word +"/definitions?limit=1&includeRelated=false&sourceDictionaries=all&useCanonical=true&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+			var url = "http://api.wordnik.com:80/v4/word.json/"+ word +"/definitions?limit=1&includeRelated=false&sourceDictionaries=all&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
 
 			// ConfigureAwait->false to stay on the same thread while getting word definitions
 			var json = await client.GetStringAsync (url).ConfigureAwait (false);
