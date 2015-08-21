@@ -72,8 +72,8 @@ namespace wordswipe
 			};
 
 			swipeNoView.Click += delegate {
-				UpdateCurrentWord ();
 				learnedWords.Add (currentWord);
+				UpdateCurrentWord ();
 			};
 
 			viewWordsButton.Click += (sender, e) =>
