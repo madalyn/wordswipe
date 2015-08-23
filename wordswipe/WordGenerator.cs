@@ -5,18 +5,16 @@ using System.Linq;
 using System.IO;
 using System.Net.Http;
 using System.Json;
+using System.Net;
 
 namespace wordswipe
 {
+	/// <summary>
+	/// Fetches a random set of words and gets their appropriate definitions
+	/// only gets a set chunk of words at at time, to keep app running fast
+	/// </summary>
 	public class WordGenerator
 	{
-		//var words = new List<string>{"hello", "world", "misanthrope", "sanctimonious", "yellow"};
-		//allWords = FetchWordsFromAsset ();
-		// the stack of words, already randomly sorted
-		//wordStack = new Stack<string> (allWords.OrderBy (w => random.Next ()));
-		// store chunks of words at a time
-		// maybe need wordClass for word data
-
 		HttpClient client;
 		Func<string, Stream> resOpener;
 		static Random random = new Random();
@@ -24,6 +22,8 @@ namespace wordswipe
 		string dictStorePath;
 		const string API_KEY = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
 
+		/// The constructor takes in the file containing the list of stored words
+		/// and reads it via opening the Assets folder
 		public WordGenerator (Func<string, Stream> resOpener, string dictStorePath)
 		{
 			this.resOpener = resOpener;
@@ -78,7 +78,7 @@ namespace wordswipe
 					if (!currentWord.Contains (".") && !currentWord.Any (char.IsDigit) && !currentWord.Any (char.IsUpper) && !currentWord.EndsWith ("s")) {
 						while (true) {
 							try {
-								var definition = await GetDefinitionForWord (reader.ReadLine ());
+								var definition = await GetDefinitionForWord (currentWord);
 								if (definition != null)
 									randomWords.Push (new Tuple<string,string> (currentWord, definition));
 								break;
@@ -94,12 +94,13 @@ namespace wordswipe
 			return randomWords;
 		}
 
+		// either get the definition from the API or from static list (eventually xml/sqlite)
 		async Task<string> GetDefinitionForWord (string word)
 		{
 			string definition = null;
 
 			// use word randomly selected to query for the definition
-			var url = "http://api.wordnik.com:80/v4/word.json/"+ word +"/definitions?limit=1&includeRelated=false&sourceDictionaries=all&useCanonical=false1&includeTags=false&api_key=" + API_KEY;
+			var url = "http://api.wordnik.com:80/v4/word.json/"+ word +"/definitions?limit=1&includeRelated=false&sourceDictionaries=all&useCanonical=false&includeTags=false&api_key=" + API_KEY;
 
 			// ConfigureAwait->false to stay on the same thread while getting word definitions
 			var json = await client.GetStringAsync (url).ConfigureAwait (false);
@@ -117,6 +118,19 @@ namespace wordswipe
 			// definition could not be found
 			return definition;
 
+		}
+
+		static bool IsNetworkAvailable ()
+		{
+			try {
+				using (var client = new WebClient ()) {
+					using (var stream = client.OpenRead("http://www.google.com")) {
+						return true;
+					}
+				}
+			} catch {
+				return false;
+			}
 		}
 
 		/*

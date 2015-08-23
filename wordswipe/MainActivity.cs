@@ -52,8 +52,6 @@ namespace wordswipe
 
 			SetActionBar (FindViewById<Toolbar> (Resource.Id.toolbar));
 
-			generator = new WordGenerator (Assets.Open, GetFileStreamPath ("dict.txt").AbsolutePath);
-
 			// get the TextViews from the UI
 			currentWordView = FindViewById<TextView> (Resource.Id.currentWord);
 			currentDefinitionView = FindViewById<TextView> (Resource.Id.definition);
@@ -61,12 +59,12 @@ namespace wordswipe
 			swipeNoView = FindViewById<TextView> (Resource.Id.swipeNo);
 			viewWordsButton = FindViewById<Button> (Resource.Id.viewWordsButton);
 
+			generator = new WordGenerator (Assets.Open, GetFileStreamPath ("dict.txt").AbsolutePath);
 			InitializeWordSet ();
 
 			//FIXME: need to store this so it doesn't reset each time the user restarts the app
 			List<string> learnedWords = new List<string> ();
 
-			// swiping actions for left & right need to be set
 			swipeYesView.Click += delegate {
 				UpdateCurrentWord ();
 			};
@@ -82,8 +80,6 @@ namespace wordswipe
 				intent.PutStringArrayListExtra("learned_words", learnedWords);
 				StartActivity(intent);
 			};
-
-			// TODO: menu for list of newly learned words
 		}
 
 		// TODO: need safety to fix bug if user clicks too fast
