@@ -21,6 +21,9 @@ namespace wordswipe
 		int [] wordReferencesList;
 		string dictStorePath;
 		const string API_KEY = "a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5";
+		//Tuple<string,string> word1 = {"hello", "A common English greeting."};
+		//Stack<Tuple<string,string>> stockWords = new Stack<Tuple<string, string>>().Push(word1);
+		string[] a = { "hi", "bye" };
 
 		/// The constructor takes in the file containing the list of stored words
 		/// and reads it via opening the Assets folder

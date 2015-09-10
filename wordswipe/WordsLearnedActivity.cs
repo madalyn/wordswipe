@@ -15,7 +15,7 @@ using Android.Graphics;
 namespace wordswipe
 {
 	// could be the heading here, also need back arrow
-	[Activity (Label = "wordswipe", Icon = "@drawable/icon", Theme = "@style/Theme.Custom")]	
+	[Activity (Label = "words learned", Icon = "@drawable/icon", Theme = "@style/Theme.Custom")]	
 	public class WordsLearnedActivity : Activity
 	{
 		protected override void OnCreate (Bundle bundle)
@@ -23,6 +23,8 @@ namespace wordswipe
 			base.OnCreate (bundle);
 
 			SetContentView (Resource.Layout.WordsLearned);
+			SetActionBar (FindViewById<Toolbar> (Resource.Id.toolbar));
+			ActionBar.SetDisplayHomeAsUpEnabled (true);
 
 			// Add the list of words the user didn't know
 			// nest their definitions in the ExpandableListView

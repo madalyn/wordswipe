@@ -51,6 +51,7 @@ namespace wordswipe
 			// set the splash screen to visible first (default)
 
 			SetActionBar (FindViewById<Toolbar> (Resource.Id.toolbar));
+			ActionBar.SetHomeButtonEnabled (true);
 
 			// get the TextViews from the UI
 			currentWordView = FindViewById<TextView> (Resource.Id.currentWord);
